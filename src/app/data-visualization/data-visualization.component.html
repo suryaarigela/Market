@@ -7,13 +7,16 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
       <mat-cell *matCellDef="let element">
 
-        <span>{{element.source}}</span>
+        <span>
+          <h4>{{element.source}}</h4>
+        </span>
 
       </mat-cell>
     </ng-container>
 
     <ng-container *ngFor="let profile of profiles" matColumnDef="{{profile}}">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{profile}}
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        <h4>{{profile}}</h4>
       </mat-header-cell>
       <mat-cell *matCellDef="let element">
 
