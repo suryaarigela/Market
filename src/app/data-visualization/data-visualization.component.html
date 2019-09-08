@@ -1,0 +1,30 @@
+<div class="example-container">
+  <mat-table #table style="width:100%" class="mat-elevation-z8" [dataSource]="dataSource" matSort>
+
+    <!--- Note that these columns can be defined in any order.
+  The actual rendered columns are set as a property on the row definition" -->
+    <ng-container matColumnDef="time">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+
+        <span>{{element.source}}</span>
+
+      </mat-cell>
+    </ng-container>
+
+    <ng-container *ngFor="let profile of profiles" matColumnDef="{{profile}}">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{profile}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+
+        <span>{{element[profile]}}</span>
+
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
