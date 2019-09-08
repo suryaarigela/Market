@@ -8,17 +8,16 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
   styleUrls: ['./data-visualization.component.css']
 })
 export class DataVisualizationComponent implements OnInit {
-
+  displayData = false;
   results: any[];
   profiles: any[] = [];
   keys: Set<string> = new Set;
-  displayedColumns = ['time', 'CRM', 'ADSK'];
+  displayedColumns = ['time'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatSort) sort: MatSort;
   constructor(private readonly dataServ: DataServiceService) {
     this.dataServ.listResults$.subscribe(data => {
       this.results = data;
-      console.log('initial....', data)
       this.profiles = [];
       this.results.forEach(row => {
 
@@ -48,16 +47,18 @@ export class DataVisualizationComponent implements OnInit {
         this.dataSource.data.push(temp);
       })
 
-      console.log('final data....', this.dataSource.data);
+
       this.results.forEach(row => {
         this.profiles.push(row.symbol);
       })
 
-
-
+      this.profiles.forEach(profile => {
+        this.displayedColumns.push(profile);
+      })
+      this.displayData = true;
 
       this.dataSource.data = this.dataSource.data.sort();
-      console.log('setting data to table....')
+
     })
 
 

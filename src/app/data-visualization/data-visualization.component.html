@@ -1,5 +1,5 @@
 <div class="example-container">
-  <mat-table #table style="width:100%" class="mat-elevation-z8" [dataSource]="dataSource" matSort>
+  <mat-table *ngIf="displayData" #table style="width:100%" class="mat-elevation-z8" [dataSource]="dataSource" matSort>
 
     <!--- Note that these columns can be defined in any order.
   The actual rendered columns are set as a property on the row definition" -->
