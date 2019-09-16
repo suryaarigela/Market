@@ -20,8 +20,8 @@
       </mat-header-cell>
       <mat-cell *matCellDef="let element">
 
-        <span>{{element[profile]}}</span>
-
+        <!--  <span [style]=getHighightedClass(element[profile])>{{element[profile]}}</span> -->
+        <div [ngClass]="getHighightedClass(element[profile],element,profile)">{{element[profile]}}</div>
       </mat-cell>
     </ng-container>
 
@@ -29,5 +29,5 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 
-  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+  <mat-paginator #paginator [pageSize]="500" [pageSizeOptions]="[5, 10, 20]">
   </mat-paginator>

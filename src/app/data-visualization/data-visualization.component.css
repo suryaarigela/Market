@@ -9,3 +9,21 @@
   .mat-column-time {
     flex: 0 0 100px;
   }
+
+  .blueClass{
+    color: black
+  }
+
+  .greenClass{
+    color: red
+  }
+
+  .greenClass_crossBreak{
+    color: red;
+    background-color: greenyellow;
+  }
+
+  .blueClass_crossBreak{
+    color: black;
+    background-color: greenyellow;
+  }
